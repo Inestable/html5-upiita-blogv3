@@ -6,7 +6,9 @@
   "dependencies": {
     "express": "4.1.0",
     "nunjucks": "1.0.4",
-    "body-parser": "^1.0.2"
+    "body-parser": "^1.0.2",
+    "socket.io": "^0.9.16",
+    "sanitizer": "^0.1.1"
   },
   "devDependencies": {},
   "scripts": {
