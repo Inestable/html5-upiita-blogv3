@@ -9,7 +9,7 @@ var http = require("http");
 
 var app = express(); /* Servidor sencillo */
 var servidor = http.createServer(app); /* Servidor http que es mas robusto */
-app.listen(8010);
+servidor.listen(8010);
 
 console.log("servidor levantado...");
 
@@ -86,8 +86,7 @@ var io = socketio.listen(servidor);
 /* escuchar peticiones de todos los clientes */
 io.sockets.on("connection", function(socket){
 	console.log("Prueba");
-	/* socket representa al cliente que me envió un mensaje */
-	socket.on("mensaje_al_servidor", function(datosCliente){
+		socket.on("mensaje_al_servidor", function(datosCliente){
 		var nombre = sanitizer.escape(datosCliente.nombre);
 		var mensaje = sanitizer.escape(datosCliente.mensaje);
 		console.log("Mensaje de: " + nombre + " el mensaje es: " + mensaje); 
@@ -96,7 +95,8 @@ io.sockets.on("connection", function(socket){
 			nombreCliente: nombre,
 			mensajeCliente: mensaje
 		});
-	});	
+	});
+	/* socket representa al cliente que me envió un mensaje */
 });
 
 
