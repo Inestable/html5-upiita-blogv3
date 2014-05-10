@@ -1,6 +1,8 @@
 /*1.- obtenemos un objeto que no permita usar la libreria express*/
 var express = require("express");
 var nunjucks = require("nunjucks");
+var bodyParser = require("body-parser");
+
 var app = express();
 app.listen(8010);
 
@@ -11,6 +13,8 @@ nunjucks.configure(__dirname + "/vistas",{
 	express:app
 });
 console.log("sistema de templates configirado..");
+/* usar body parser para recibir parametros del cliente */
+app.use(bodyParser());
 
 /*configurar rutas estaicas*/
 app.use("/css", express.static(__dirname + "/css"));
@@ -33,3 +37,33 @@ app.get("/home", function(request, response){
 app.get("/galeria", function(request, response){
       response.render("galeria.html");
 });
+/* http://127.0.0.1:8010/ */
+app.get("/contacto", function(request, response){
+      response.render("contacto.html");
+});
+
+/*Responder a una peticion post */
+app.post("/suscribir",function(request,response){
+	var correo = request.body.email;
+	console.log("Email "+ correo);
+	response.render("suscribir.html",{
+		email: correo,
+		mensaje: "Hola Cliente"
+	});
+});
+
+app.post("/contactar",function(request,response){
+	var nombre = request.body.nombre;
+	var email = request.body.email;
+	var web = request.body.web;
+	var edad = request.body.edad;
+	var comentario = request.body.comentario;
+	response.render("contactar.html",{
+		nombreM: nombre,
+		emailM: email,
+		webM: web,
+		edadM: edad,
+		comentarioM: comentario
+	});
+});
+

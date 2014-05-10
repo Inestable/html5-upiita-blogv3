@@ -111,3 +111,19 @@ nav ul li a {
 	color: white;
 	text-decoration: none;
 }
+
+/* Estilos suscribir */
+
+#suscribir-email:required:invalid{
+	background-image: url("../imagenes/incorrecto.png");
+	background-repeat: no-repeat;
+	background-position: right top;
+	background-size: 20px;
+}
+
+#suscribir-email:required:valid{
+	background-image: url("../imagenes/correcto.png");
+	background-repeat: no-repeat;
+	background-position: right top;
+	background-size: 20px;
+}

@@ -44,45 +44,15 @@
                 </ul>
             </nav>
         </header>
-        <section id="bienvenida">
-            Desarrollo ágil como un gato
+        <section id="contctar">
+        	<h2>Tu mensaje ha llegado...</h2>
+        	<p>{{nombreM}}</p>
+        	<p>{{emailM}}</p>
+        	<p>{{webM}}</p>
+        	<p>{{edadM}}</p>
+        	<p>{{comentarioM}}</p>
         </section>
-        <section id="frases">
-            <div class="frase">
-                <img src="../imagenes/movil.png"/>
-                <p>
-                    Móviles
-                </p>
-            </div>
-            <div class="frase">
-                <img src="../imagenes/seo.png"/>
-                <p>
-                    SEO
-                </p>
-            </div>
-            <div class="frase">
-                <img src="../imagenes/compu.png"/>
-                <p>
-                    Diseño
-                </p>
-            </div>
-        </section>
-        <section id="testimonios">
-            <div id="testimonio-gato">
-                <img src="../imagenes/testimonio.jpg"/>
-                <p>
-                    Excelente producto, mi vida es mejor desde entonces :)
-                </p>
-            </div>
-            <div id="testimonio-video">
-                <video controls="controls">
-                    <source src="../videos/testimonio.webm" type="video/webm"/>
-                    <source src="../videos/testimonio.mp4" type="video/mp4" />
-                    <source src="../videos/testimonio.ogv" type="video/ogg" />
-                    Tu navegador no soporta video
-                </video>
-            </div>
-        </section>
+        
         <footer>
             <div id="siguenos">
                 <h3>Síguenos</h3>
@@ -97,9 +67,10 @@
                 <h3>Suscribir</h3>
                 <form method="post" action="/suscribir">
                  	<label for="suscribir-email">Email:</label>
-                	<input pattern="[a-zA-Z0-9._-]+@[a-zA-Z]+\.[a-zA-z]{2,3}" required="required" placeholder="Ingresa tu email" id="suscribir-email" type="email" name="email" />
+                	<input id="suscribir-email" type="text" />
                 	<input type="submit" value="Suscribir"/>
                 </form>
+                
             </div>
         </footer>
     </body>
