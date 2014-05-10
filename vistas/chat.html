@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+    <!-- head es para configurar la página -->
+    <head>
+        <title>Mi blog</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width; initial-scale=1.0">
+        <script  src="../javascript/jquery-1.10.2.min.js"></script>
+        <script  src="../javascript/sombra_titulo.js"></script>
+        <script  src="../javascript/cerrar_redes.js"></script>
+        <script  src="../javascript/cambia_gato.js"></script>
+        <script  src="../javascript/galeria.js"></script>
+        <!-- Para el chat -->
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="../javascript/chat_cliente.js"></script>
+        
+        <link href="../css/normalize.css" rel="stylesheet" type="text/css"/>
+        <!--<link href="css/media.css" rel="stylesheet" type="text/css" />
+        -->
+        <link href="../css/estilos_global.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/estilos_lap.css" rel="stylesheet" type="text/css" media="screen and (min-width: 800px)"/>
+        <link href="../css/estilos_moviles.css" rel="stylesheet" type="text/css" media="screen and (max-width: 800px)"/>
+
+    </head>
+    <!-- body contenido de la página -->
+    <body>
+        <header>
+            <div id="titulo">
+                <h1>Consultora Cat</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="/galeria">Galeria</a>
+                    </li>
+                    <li>
+                        <a href="/chat">Chat</a>
+                    </li>
+                    <li>
+                        <a href="/contacto">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <section id="chat">
+            <!-- titulos del chat -->
+            <h1>Chat en Vivo</h1>
+            <h4>Mensajes de los usuarios:</h4>
+            <!-- caja de mensajes de los nuevos usuarios -->
+            <div id="mensajes">
+                <!--aqui se agragan las cajas mensaje-->
+            </div>
+            <!-- mensaje del usuario -->
+            <p>
+                <label>Mensaje:</label>
+                <input id="mensaje-usuario" type="text" placeholder="Escriba su mensaje aqui"/>
+            </p>
+            <!-- nombre del usuario -->
+            <p>
+                <label>Usuario:</label>
+                <input id="nombre-usuario" type="text" placeholder="Su nombre aqui"/>
+            </p>
+            <!-- boton de enviar -->
+            <button id="boton">
+                Enviar
+            </button>
+
+        </section>
+        <footer>
+            <div id="siguenos">
+                <h3>Síguenos</h3>
+                <div id="imagenes-redes">
+                    <img src="../imagenes/plato/facebook.png"/>
+                    <img src="../imagenes/plato/twitter.png"/>
+                    <img src="../imagenes/plato/youtube.png" />
+                </div>
+                <a id="cerrar" href="#">close</a>
+            </div>
+            <div id="suscribir">
+                <h3>Suscribir</h3>
+                <label for="suscribir-email">Email:</label>
+                <input id="suscribir-email" type="text" />
+            </div>
+        </footer>
+    </body>
+</html>

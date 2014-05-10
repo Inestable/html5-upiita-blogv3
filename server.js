@@ -2,8 +2,13 @@
 var express = require("express");
 var nunjucks = require("nunjucks");
 var bodyParser = require("body-parser");
+/* librerias para el chat */
+var socketio = require("socket.io");
+var sanitizer = require("sanitizer");
+var http = require("http");
 
-var app = express();
+var app = express(); /* Servidor sencillo */
+var servidor = http.createServer(app); /* Servidor http que es mas robusto */
 app.listen(8010);
 
 console.log("servidor levantado...");
@@ -41,6 +46,11 @@ app.get("/galeria", function(request, response){
 app.get("/contacto", function(request, response){
       response.render("contacto.html");
 });
+/* http://127.0.0.1:8010/ */
+app.get("/chat", function(request, response){
+      response.render("chat.html");
+});
+
 
 /*Responder a una peticion post */
 app.post("/suscribir",function(request,response){
@@ -66,4 +76,40 @@ app.post("/contactar",function(request,response){
 		comentarioM: comentario
 	});
 });
+
+
+/* Chat */
+/* Obtener un socket para comunicarme con todos */
+
+var io = socketio.listen(servidor);
+
+/* escuchar peticiones de todos los clientes */
+io.sockets.on("connection", function(socket){
+	console.log("Prueba");
+	/* socket representa al cliente que me envió un mensaje */
+	socket.on("mensaje_al_servidor", function(datosCliente){
+		var nombre = sanitizer.escape(datosCliente.nombre);
+		var mensaje = sanitizer.escape(datosCliente.mensaje);
+		console.log("Mensaje de: " + nombre + " el mensaje es: " + mensaje); 
+		/* Envio datos a todos */
+		io.sockets.emit("mensaje_al_cliente",{
+			nombreCliente: nombre,
+			mensajeCliente: mensaje
+		});
+	});	
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
